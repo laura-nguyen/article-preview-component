@@ -1,0 +1,19 @@
+// - Very Dark Grayish Blue: hsl(217, 19%, 35%)
+// - Desaturated Dark Blue: hsl(214, 17%, 51%)
+// - Grayish Blue: hsl(212, 23%, 69%)
+// - Light Grayish Blue: hsl(210, 46%, 95%)
+
+$primary-color: hsl(217, 19%, 35%);
+$secondary-color: hsl(214, 17%, 51%);
+$accent-color: hsl(212, 23%, 69%);
+$background-color: hsl(210, 46%, 95%);
+$white-color: hsl(0, 0%, 100%);
+
+// weights
+$medium: 500;
+$bold: 700;
+
+// breakpoints
+$mobile: 375px;
+$tablet: 768px;
+$desktop: 1440px;

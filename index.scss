@@ -1,0 +1,116 @@
+@use "styles/partials/mixins" as *;
+@use "styles/partials/variables" as *;
+@use "styles/partials/typography" as *;
+@use "styles/partials/global" as *;
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  a {
+    color: hsl(228, 45%, 44%);
+  }
+}
+
+.card {
+  background-color: $white-color;
+  border-radius: 10px;
+  color: $secondary-color;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  margin: 5rem auto;
+  max-width: 327px;
+
+  @include desktop {
+    flex-direction: row;
+    max-width: 650px;
+    margin: auto;
+  }
+
+  &__image {
+    object-fit: cover;
+    object-position: 0 -18px;
+    max-height: 200px;
+
+    @include desktop {
+      max-height: 100%;
+      object-position: 0;
+      max-width: 44%;
+    }
+  }
+
+  &__content {
+    padding: 1.25rem 2rem;
+    @include desktop {
+      padding: 2rem;
+    }
+  }
+
+  &__heading {
+    color: $primary-color;
+    font-size: 1rem;
+    font-weight: $bold;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
+    @include desktop {
+      margin-top: 0;
+    }
+  }
+
+  &__description {
+    font-size: 13px;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+    font-weight: $medium;
+
+    @include desktop {
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &__avatar {
+    border-radius: 50%;
+    height: 2.5rem;
+    width: 2.5rem;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    margin-right: auto;
+  }
+
+  &__author {
+    color: $primary-color;
+    font-weight: $bold;
+    font-size: 13px;
+  }
+
+  &__date {
+    color: $accent-color;
+    font-size: 13px;
+    font-weight: $medium;
+  }
+
+  &__share {
+    background-color: $background-color;
+    border: none;
+    border-radius: 50%;
+    height: 2rem;
+    width: 2rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
