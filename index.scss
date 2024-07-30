@@ -19,7 +19,7 @@
   flex-direction: column;
   justify-content: center;
   border-radius: 10px;
-  overflow: hidden;
+
   position: relative;
   margin: 5rem auto;
   max-width: 327px;
@@ -30,16 +30,27 @@
     margin: auto;
   }
 
-  &__image {
-    object-fit: cover;
-    object-position: 0 -18px;
-    max-height: 200px;
+  &__thumbnail {
+    border-radius: 10px 10px 0 0;
+    overflow: hidden;
 
     @include desktop {
-      max-height: 100%;
-      object-position: 0;
-      max-width: 44%;
+      border-radius: 10px 0 0 10px;
     }
+  }
+
+  &__image {
+    object-fit: cover;
+    height: 100%;
+    object-position: left;
+    // object-position: 0 -18px;
+    // max-height: 200px;
+
+    // @include desktop {
+    //   max-height: 100%;
+    //   object-position: 0;
+    //   max-width: 44%;
+    // }
   }
 
   &__content {
@@ -76,6 +87,8 @@
     display: flex;
     align-items: center;
     gap: 1rem;
+    position: relative;
+    border-top: 1px black solid;
   }
 
   &__avatar {
@@ -100,6 +113,46 @@
     color: $accent-color;
     font-size: 13px;
     font-weight: $medium;
+  }
+
+  &__share-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: $primary-color;
+    padding: 1.5rem 2rem;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 3px;
+    position: absolute;
+
+    // height: calc(1.25rem + 41px + 1rem);
+
+    @include mobile {
+      width: 327px;
+      left: -32px;
+      top: -8px;
+      border-radius: 0 0 10px 10px;
+    }
+
+    @include desktop {
+      position: absolute;
+      top: -4.5rem;
+      left: 14rem;
+      padding: 1rem 2rem;
+      width: max-content;
+      border-radius: 10px;
+    }
+  }
+
+  &__share-text {
+    color: $white-color;
+    margin-right: 0.25rem;
+  }
+
+  &__share-icon {
+    height: 1rem;
+    width: 1rem;
   }
 
   &__share {
