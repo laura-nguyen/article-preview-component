@@ -43,14 +43,6 @@
     object-fit: cover;
     height: 100%;
     object-position: left;
-    // object-position: 0 -18px;
-    // max-height: 200px;
-
-    // @include desktop {
-    //   max-height: 100%;
-    //   object-position: 0;
-    //   max-width: 44%;
-    // }
   }
 
   &__content {
@@ -89,7 +81,6 @@
     align-items: center;
     gap: 1rem;
     position: relative;
-    border-top: 1px black solid;
   }
 
   &__avatar {
@@ -124,17 +115,21 @@
     padding: 1.5rem 2rem;
     text-transform: uppercase;
     font-size: 13px;
-    letter-spacing: 3px;
+    letter-spacing: 4px;
     position: absolute;
+    display: none;
 
-    // height: calc(1.25rem + 41px + 1rem);
+    &.visible {
+      display: flex; // or block, depending on your layout
+    }
 
     @include mobile {
       width: 327px;
       left: -32px;
-      top: -8px;
+      top: -12px;
       border-radius: 0 0 10px 10px;
       z-index: 2;
+      padding: 1.25rem 2rem;
     }
 
     @include desktop {
@@ -148,13 +143,16 @@
   }
 
   &__share-text {
-    color: $white-color;
+    color: $secondary-color;
     margin-right: 0.25rem;
   }
 
   &__share-icon {
     height: 1rem;
     width: 1rem;
+    &:focus {
+      background-color: $white-color;
+    }
   }
 
   &__share {
@@ -166,9 +164,42 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
 
-    // img {
-    //   z-index: 50;
-    // }
+    &--mobile {
+      border-radius: 50%;
+      height: 2rem;
+      width: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: auto;
+      background-color: $secondary-color;
+      @include desktop {
+        display: none;
+      }
+    }
+
+    &:focus {
+      cursor: pointer;
+      background-color: $primary-color;
+    }
+
+    @include desktop {
+      &::after {
+        content: "";
+        position: absolute;
+        top: -76%;
+        left: 50%;
+        border-style: solid;
+        margin-left: -10px;
+        border-width: 10px;
+        border-color: $primary-color transparent transparent;
+        display: none;
+      }
+      &.active::after {
+        display: block; // Show when .active class is present
+      }
+    }
   }
 }
